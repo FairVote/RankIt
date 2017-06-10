@@ -4,6 +4,11 @@
     "outDir": "../../../../out-tsc/app",
     "module": "es2015",
     "baseUrl": "",
+    "paths": {
+      "@rankit/core": [
+        "../../dist"
+      ]
+    },
     "types": []
   },
   "exclude": [

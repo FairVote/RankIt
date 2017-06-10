@@ -1,18 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BallotViewComponent, RankitCoreModule } from '@rankit/core';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
+
   imports: [
     BrowserModule,
-    AppRoutingModule
+    RankitCoreModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: BallotViewComponent
+      }
+    ])
+
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class CoreDemoModule {}

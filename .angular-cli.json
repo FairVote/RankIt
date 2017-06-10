@@ -5,27 +5,24 @@
   },
   "apps": [
     {
-      "root": "modules/core/demo/",
-      "outDir": "dist",
+      "name": "core",
+      "root": "modules/core/src",
+      "outDir": "modules/core/dist-demo",
       "assets": [
-        "assets",
-        "favicon.ico"
       ],
-      "index": "index.html",
-      "main": "main.ts",
-      "polyfills": "polyfills.ts",
-      "test": "test.ts",
-      "tsconfig": "tsconfig.app.json",
-      "testTsconfig": "tsconfig.spec.json",
+      "index": "demo/index.html",
+      "main": "demo/main.ts",
+      "polyfills": "demo/polyfills.ts",
+      "test": "lib/test.ts",
+      "tsconfig": "demo/tsconfig.json",
+      "testTsconfig": "lib/tsconfig.spec.json",
       "prefix": "rankit",
-      "styles": [
-        "styles.scss"
-      ],
+      "styles": [],
       "scripts": [],
-      "environmentSource": "environments/environment.ts",
+      "environmentSource": "demo/environments/environment.ts",
       "environments": {
-        "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
+        "dev": "demo/environments/environment.ts",
+        "prod": "demo/environments/environment.prod.ts"
       }
     }
   ],
@@ -36,10 +33,10 @@
   },
   "lint": [
     {
-      "project": "modules/core/demo//tsconfig.app.json"
+      "project": "modules/core/demo/tsconfig.app.json"
     },
     {
-      "project": "modules/core/demo//tsconfig.spec.json"
+      "project": "modules/core/lib/tsconfig.spec.json"
     },
     {
       "project": "e2e/tsconfig.e2e.json"
