@@ -5,5 +5,14 @@
 
 export const environment = {
   production: false,
-  appId: 'rankit-widget'
+  appId: 'rankit-widget',
+  firebaseConf: {
+    apiKey: 'AIzaSyDbp_hzGe3_RIQ_qHcTSOBHYWCVjuuSydk',
+    authDomain: 'rank-it-dev.firebaseapp.com',
+    databaseURL: 'https://rank-it-dev.firebaseio.com',
+    projectId: 'rank-it-dev',
+    storageBucket: 'rank-it-dev.appspot.com',
+    messagingSenderId: '845591056733'
+  }
+
 };

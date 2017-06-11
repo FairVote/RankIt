@@ -1,0 +1,17 @@
+{
+  "database": {
+    "rules": "schema.bolt"
+  },
+  "hosting": {
+    "public": "public",
+    "redirects": [
+      {
+        "source": "/widget/:id",
+        "destination": "https://storage.googleapis.com/rank-it-app.appspot.com/widgets/:id"
+      }
+    ]
+  },
+  "functions": {
+    "source": "modules/cloud"
+  }
+}
