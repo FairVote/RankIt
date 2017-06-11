@@ -24,6 +24,48 @@
         "dev": "demo/environments/environment.ts",
         "prod": "demo/environments/environment.prod.ts"
       }
+    },
+    {
+      "name": "widget-browser",
+      "root": "modules/widget/src",
+      "outDir": "modules/widget/dist-browser",
+      "assets": [
+      ],
+      "index": "index.html",
+      "main": "browser/main.ts",
+      "polyfills": "browser/polyfills.ts",
+      "test": "browser/test.ts",
+      "tsconfig": "browser/tsconfig.json",
+      "testTsconfig": "lib/tsconfig.spec.json",
+      "prefix": "rankit",
+      "styles": [],
+      "scripts": [],
+      "environmentSource": "browser/environments/environment.ts",
+      "environments": {
+        "dev": "browser/environments/environment.ts",
+        "prod": "browser/environments/environment.prod.ts"
+      }
+    },
+    {
+      "name": "widget-server",
+      "root": "modules/widget/src",
+      "outDir": "modules/widget/dist-server",
+      "assets": [
+      ],
+      "index": "index.html",
+      "main": "server/main.ts",
+      "polyfills": "server/polyfills.ts",
+      "test": "server/test.ts",
+      "tsconfig": "server/tsconfig.json",
+      "testTsconfig": "lib/tsconfig.spec.json",
+      "prefix": "rankit",
+      "styles": [],
+      "scripts": [],
+      "environmentSource": "server/environments/environment.ts",
+      "environments": {
+        "dev": "server/environments/environment.ts",
+        "prod": "server/environments/environment.prod.ts"
+      }
     }
   ],
   "e2e": {
