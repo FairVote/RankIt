@@ -1,6 +1,97 @@
-{
-  "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null"
+
+/* ************************************* FUNCTIONS ************************************* */
+
+isValidSecurityType(it) { it == 'anonymous' || it == 'unverified' || it == 'verified'  }
+isExtantUser(id) { root.user[id] != null }
+isExtantPoll(id) { root.poll[id] != null }
+isAuthUser(id) { auth != null && auth.uid == id }
+allowsAnonymousVotes(pollId) { root.poll[id].security == 'anonymous'}
+allowsUnverifiedVotes(pollId) { root.poll[id].security == 'unverified' || root.poll[id].security == 'anonymous' }
+userIsVerified() { auth != null && root.user_private[auth.uid].emailVerified == true }
+
+/* ************************************* TYPES ************************************* */
+
+type PollOption {
+  text: String;
+  color: String;
+  image: String|Null;
+
+  validate() { this.text.length <= 50 }
+
+}
+
+type Poll {
+  prompt: String;
+  options: PollOption[];
+  security: String;
+  isPublic: Boolean;
+  timeCreated: String;
+  timeEdited: String;
+  timeClosed: String|Null;
+  owner: String;
+
+  validate() { isValidSecurityType(this.security) && isExtantUser(this.owner) }
+}
+
+type Vote {
+  choices: String[];
+  owner: String;
+  timeCast: String;
+
+  validate() { this.choices.length > 0 && isExtantUser(this.owner) }
+}
+
+type UserPublicData {
+  displayName: String;
+  photoUrl: String|Null;
+}
+
+type UserPrivateData {
+  email: String;
+  emailVerified: String;
+  polls: Map<String, Boolean>;
+  votes: Map<String, String>;
+}
+
+
+/* ************************************* PATHS ************************************* */
+
+path /poll {
+  read() { true }
+}
+
+path /poll/{pollId} is Poll {
+  //allow if an authenticated user is creating a new poll, or editing a poll they own
+  write(){ auth != null && (prior(this) == null || auth.uid == this.owner ) }
+}
+
+path /vote {
+  read() { true }
+}
+
+path /vote/{pollId}/{voteId} is Vote {
+  write() {
+    (prior(this) != null && auth != null && auth.uid == this.owner) || //always allow a user to edit an existing vote
+    prior(this) == null && (                                           //or if we're creating a new vote, allow if:
+      allowsAnonymousVotes(pollId) ||                                  // the poll allows anonymous votes, OR
+      (allowsUnverifiedVotes(pollId) && auth != null) ||               // poll allows unverified votes and user is authenticated, OR
+      userIsVerified()                                                 // the user is verified, thus can vote in any poll
+    )
   }
+}
+
+
+
+path /user {
+  read() { true }
+}
+
+path /user/{id} is UserPublicData {
+  write() { isAuthUser(id) }
+}
+
+path /user_private/{id} is UserPrivateData {
+  read() { isAuthUser(id) }
+  write() { isAuthUser(id) }
+
 }

@@ -15,7 +15,7 @@
       "polyfills": "app/browser/polyfills.ts",
       "test": "app/browser/test.ts",
       "tsconfig": "app/browser/tsconfig.json",
-      "testTsconfig": "tsconfig.spec.json",
+      "testTsconfig": "app/browser/tsconfig.spec.json",
       "prefix": "rankit",
       "styles": [],
       "scripts": [],
