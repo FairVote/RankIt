@@ -1,0 +1,20 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../../out-tsc/app-server",
+    "module": "es2015",
+    "types": [
+      "node"
+    ]
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ],
+  "angularCompilerOptions": {
+    "genDir": "ngfactory",
+    "skipTemplateCodegen": false,
+    "strictMetadataEmit": false,
+    "entryModule": "src/server-widget.module#ServerWidgetModule"
+  }
+}

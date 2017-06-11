@@ -1,28 +1,8 @@
 {
-  "name": "@rankit/widget",
+  "name": "@rankit/widget-server",
   "version": "1.0.0-beta.0",
   "license": "MIT",
-  "main": "./widget.umd.js",
-  "module": "./widget.es5.js",
-  "es2015": "./widget.es2015.js",
-  "typings": "./widget.d.ts",
-  "private": true,
-  "peerDependencies": {
-    "@angular/animations": "~4.2.0",
-    "@angular/common": "~4.2.0",
-    "@angular/core": "~4.2.0",
-    "@angular/router": "~4.2.0",
-    "core-js": "^2.4.1",
-    "rxjs": "^5.4.0",
-    "zone.js": "^0.8.11"
-  },
-  "optionalDependencies": {
-    "@angular/http": "~4.2.0",
-    "@angular/platform-server": "~4.2.0",
-    "angularfire2": "^4.0.0-rc.1",
-    "firebase": "^4.1.2"
-  },
-  "devDependencies": {
+  "dependencies": {
     "@angular/animations": "~4.2.0",
     "@angular/common": "~4.2.0",
     "@angular/compiler": "~4.2.0",
@@ -30,13 +10,14 @@
     "@angular/forms": "~4.2.0",
     "@angular/http": "~4.2.0",
     "@angular/platform-browser": "~4.2.0",
-    "@angular/platform-browser-dynamic": "~4.2.0",
+    "@angular/platform-server": "~4.2.0",
     "@angular/router": "~4.2.0",
-    "angularfire2": "^4.0.0-rc.1",
+    "@rankit/widget": "1.0.0-beta.0",
     "core-js": "^2.4.1",
-    "firebase": "^4.1.2",
     "rxjs": "^5.4.0",
-    "zone.js": "^0.8.11",
+    "zone.js": "^0.8.4"
+  },
+  "devDependencies": {
     "@angular/cli": "1.2.0-beta.1",
     "@angular/compiler-cli": "~4.2.0",
     "@angular/language-service": "~4.2.0",

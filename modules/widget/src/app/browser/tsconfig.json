@@ -1,0 +1,19 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../../out-tsc/app-browser",
+    "module": "es2015",
+    "baseUrl": "",
+    "types": []
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ],
+  "angularCompilerOptions": {
+    "genDir": "ngfactory",
+    "skipTemplateCodegen": false,
+    "strictMetadataEmit": false,
+    "entryModule": "./src/browser-widget.module#BrowserWidgetModule"
+  }
+}

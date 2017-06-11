@@ -1,0 +1,11 @@
+{
+  "port": 4402,
+  "open": false,
+  "server": {
+    "baseDir": "./public/ssr/",
+    "serverStaticOptions": {
+      "extensions": "html"
+    }
+  },
+  "startPath": "foobar.html"
+}
