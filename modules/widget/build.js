@@ -151,3 +151,5 @@ function compileSassFiles() {
   ]);
 }
 
+module.exports = build;
+

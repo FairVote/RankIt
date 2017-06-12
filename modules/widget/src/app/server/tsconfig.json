@@ -9,12 +9,13 @@
   },
   "exclude": [
     "test.ts",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "ngfactory"
   ],
   "angularCompilerOptions": {
     "genDir": "ngfactory",
     "skipTemplateCodegen": false,
     "strictMetadataEmit": false,
-    "entryModule": "src/server-widget.module#ServerWidgetModule"
+    "entryModule": "server-widget.module#ServerWidgetModule"
   }
 }

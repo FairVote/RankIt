@@ -1,7 +1,7 @@
 import { INITIAL_CONFIG, platformServer, PlatformState } from '@angular/platform-server';
-import { ServerWidgetModule } from './src/server-widget.module';
+import { ServerWidgetModule } from './server-widget.module';
 import { ApplicationRef, NgModuleRef } from '@angular/core';
-import { ServerWidgetModuleNgFactory } from './ngfactory/src/server-widget.module.ngfactory';
+import { ServerWidgetModuleNgFactory } from './ngfactory/server-widget.module.ngfactory';
 
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/first';

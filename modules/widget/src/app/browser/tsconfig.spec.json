@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "exclude": [
+    "../server/**/*"
+  ],
+  "compilerOptions": {
+    "baseUrl": "",
+    "module": "commonjs",
+    "declaration": false,
+    "emitDecoratorMetadata": true
+  },
+  "angularCompilerOptions": {
+    "entryModule": "browser-widget.module#BrowserWidgetModule"
+  }
+}

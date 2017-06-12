@@ -14,6 +14,6 @@
     "genDir": "ngfactory",
     "skipTemplateCodegen": false,
     "strictMetadataEmit": false,
-    "entryModule": "./src/browser-widget.module#BrowserWidgetModule"
+    "entryModule": "./browser-widget.module#BrowserWidgetModule"
   }
 }

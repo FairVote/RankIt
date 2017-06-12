@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RankitCoreModule, RankitRootRoutingModule } from '@rankit/widget';
+import { NodeInfrastructureModule, RankitRootRoutingModule, RankitWidgetModule } from '@rankit/widget';
 import { ServerRootComponent } from './server-root.component';
 import { ServerModule } from '@angular/platform-server';
-import { environment } from '../../environments/environment';
+import { environment } from '../environments/environment';
 
 @NgModule({
   imports: [
     ServerModule,
     BrowserModule.withServerTransition({ appId: environment.appId }),
-    RankitCoreModule,
+    NodeInfrastructureModule,
+    RankitWidgetModule,
     RankitRootRoutingModule
   ],
   declarations: [ ServerRootComponent ],

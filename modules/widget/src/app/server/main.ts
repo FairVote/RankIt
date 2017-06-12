@@ -1,7 +1,7 @@
 import { enableProdMode } from '@angular/core';
 
 import { INITIAL_CONFIG, platformServer } from '@angular/platform-server';
-import { ServerWidgetModule } from './src/server-widget.module';
+import { ServerWidgetModule } from './server-widget.module';
 import { environment } from '../environments/environment';
 
 if (environment.production) {

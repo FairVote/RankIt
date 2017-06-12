@@ -1,4 +1,4 @@
 import './polyfills';
 
-export { ServerWidgetModule } from './src/server-widget.module';
+export { ServerWidgetModule } from './server-widget.module';
 export { renderWidget } from './render';

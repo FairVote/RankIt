@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const ProgressPlugin = require('webpack/lib/ProgressPlugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {NoEmitOnErrorsPlugin, NamedModulesPlugin} = require('webpack');
 const {GlobCopyWebpackPlugin, BaseHrefWebpackPlugin} = require('@angular/cli/plugins/webpack');
@@ -126,7 +126,7 @@ const commonConfig = {
         ignore: "**/.gitkeep"
       }
     }),
-    new ProgressPlugin(),
+    new ProgressBarPlugin(),
 
     new BaseHrefWebpackPlugin({}),
     new NamedModulesPlugin({}),
@@ -140,7 +140,7 @@ const browserConfig = merge({}, commonConfig, {
   },
 
   output: {
-    path: path.join(__dirname, "dist", "app"),
+    path: path.join(__dirname, "dist", "app", "browser"),
     filename: "browser-[name].bundle.js",
     chunkFilename: "[id].chunk.js"
   },
@@ -150,7 +150,7 @@ const browserConfig = merge({}, commonConfig, {
 
     new AotPlugin({
       //NOTE: this has to be the absolute path
-      entryModule: helpers.root('modules/widget/src/app/browser/src/browser-widget.module#BrowserWidgetModule'),
+      entryModule: helpers.root('modules/widget/src/app/browser/browser-widget.module#BrowserWidgetModule'),
       tsConfigPath: "./src/app/browser/tsconfig.json"
     }),
 
@@ -216,7 +216,7 @@ const serverConfig = merge({}, commonConfig, {
   },
 
   output: {
-    path: path.join(__dirname, "dist", "app"),
+    path: path.join(__dirname, "dist", "app", "server"),
     filename: "[name].js",
     chunkFilename: "[id].chunk.js",
     libraryTarget: 'umd',
@@ -227,7 +227,7 @@ const serverConfig = merge({}, commonConfig, {
 
     new AotPlugin({
       //NOTE: this has to be the absolute path
-      entryModule: helpers.root('modules/widget/src/app/server/src/server-widget.module#ServerWidgetModule'),
+      entryModule: helpers.root('modules/widget/src/app/server/server-widget.module#ServerWidgetModule'),
       tsConfigPath: "./src/app/server/tsconfig.json"
     }),
 
