@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { BallotViewComponent } from './ballot/ballot-view/ballot-view.component';
+import { BallotPageComponent } from './ballot/ballot-page.component';
 
 export const RANKIT_ROUTES = [
   {
     path: ':pollId',
-    component: BallotViewComponent
+    component: BallotPageComponent
   }
 ];
 

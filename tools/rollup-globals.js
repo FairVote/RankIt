@@ -143,5 +143,14 @@ module.exports = {
   'rxjs/add/operator/windowWhen': 'Rx.Observable.prototype',
   'rxjs/add/operator/withLatestFrom': 'Rx.Observable.prototype',
   'rxjs/add/operator/zipAll': 'Rx.Observable.prototype',
-  'rxjs/add/operator/zipProto': 'Rx.Observable.prototype'
+  'rxjs/add/operator/zipProto': 'Rx.Observable.prototype',
+  'faker/index': 'faker',
+  'lodash/index': 'lodash',
+  '@ngrx/store': 'ngrx.store',
+  '@ngrx/effects': 'ngrx.effects',
+  '@ngrx/store-devtools': 'storeDevtools',
+  'firebase/index': 'firebase',
+  'angularfire2/auth': 'angularFire2',
+  'angularfire2/database': 'angularFire2',
+  'angularfire2/index': 'angularFire2',
 };

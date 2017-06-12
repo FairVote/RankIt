@@ -4,11 +4,13 @@ import { NodeInfrastructureModule, RankitRootRoutingModule, RankitWidgetModule }
 import { ServerRootComponent } from './server-root.component';
 import { ServerModule } from '@angular/platform-server';
 import { environment } from '../environments/environment';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   imports: [
     ServerModule,
     BrowserModule.withServerTransition({ appId: environment.appId }),
+    StoreModule.forRoot({}),
     NodeInfrastructureModule,
     RankitWidgetModule,
     RankitRootRoutingModule

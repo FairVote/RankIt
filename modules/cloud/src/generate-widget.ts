@@ -1,5 +1,5 @@
 import * as functions from 'firebase-functions';
-import { renderWidget } from '@rankit/widget/app';
+import { renderWidget } from '@rankit/widget/app/server';
 import { getStorageBucket } from './_internal';
 
 const bucket = getStorageBucket();
@@ -10,7 +10,7 @@ export const generateWidget = functions.database.ref(`/vote`).onWrite((evt) => {
 
 });
 
-export async function doGenerateWidget(pollId: string) {
+export async function generateAndStoreWidget(pollId: string) {
   if (verbose) {
     console.info(`Generating widget for poll: ${pollId}`);
   }
@@ -23,12 +23,12 @@ export async function doGenerateWidget(pollId: string) {
 
   const file = bucket.file(`widgets/${pollId}.html`);
 
-  const uploadResult = await file.save(html);
+  await file.save(html);
 
   if (verbose) {
     console.info(`Upload successful: ${pollId}`);
   }
-  const makePublicResult = await file.makePublic();
+  await file.makePublic();
 
   if (verbose) {
     console.info(`Publishing successful: ${pollId}`);
@@ -38,4 +38,4 @@ export async function doGenerateWidget(pollId: string) {
 
 }
 
-doGenerateWidget('asdf');
+generateAndStoreWidget('asdf');
