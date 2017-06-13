@@ -25,8 +25,7 @@ const commonConfig = {
     ],
     modules: [
       "node_modules"
-    ],
-    symlinks: true
+    ]
   },
   resolveLoader: {
     modules: [

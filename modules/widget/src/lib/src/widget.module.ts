@@ -5,20 +5,24 @@ import { DatasourceToken } from './infrastructure/tokens';
 import { Datasource } from './infrastructure/interfaces';
 import { SessionService } from './services/session.service';
 import { StoreModule } from '@ngrx/store';
-import { dataReducers, sessionReducers } from './reducers/index';
+import { reducers } from './reducers/index';
 import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { DataEffects } from './services/data.effects';
+import { PollDataService } from './services/poll-data.service';
 
 @NgModule({
   imports: [
     CommonModule,
 
-    StoreModule.forFeature('data', dataReducers),
-    StoreModule.forFeature('session', sessionReducers),
+
+    StoreModule.provideStore(reducers),
+    EffectsModule.run(DataEffects),
 
     BallotModule
 
   ],
-  providers: [ SessionService ]
+  providers: [ SessionService, PollDataService ]
 })
 export class RankitWidgetModule {
 

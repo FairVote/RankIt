@@ -8,7 +8,7 @@
     "start:widget:browser": "ng serve --app widget-browser --aot --port 4400 ",
     "start:widget:server": "concurrently \"cd modules/widget && webpack --watch \" \"lite-server -c bs.server-widget.config.json\"",
     "dev": "concurrently \"npm run watch:widget:lib\" \"npm run start:widget:browser\" \"npm run start:widget:server\"",
-    "build:widget:lib": "cd modules/widget && node build.js",
+    "build:widget:lib": "cd modules/widget && node build.js run",
     "build:widget:app": "cd modules/widget && webpack",
     "build:widget": "npm run build:widget:lib && npm run build:widget:app",
     "watch:widget:lib": "gulp watch:lib",
@@ -32,9 +32,10 @@
     "@angular/platform-server": "^4.1.3",
     "@angular/router": "~4.2.0",
     "@google-cloud/storage": "^1.1.1",
-    "@ngrx/effects": "github:ngrx/effects-builds#2487f6c2d7077c8e40ad854d57bf1ebb7737c347",
-    "@ngrx/store": "github:ngrx/store-builds#69367776359fcada4d22293b79ae98812180a4f4",
-    "@ngrx/store-devtools": "github:ngrx/store-devtools-builds#c242ff24d168c2c0224b9be469f7e5740bf8a151",
+    "@ngrx/core": "^1.2.0",
+    "@ngrx/effects": "^2.0.3",
+    "@ngrx/store": "^2.2.2",
+    "@ngrx/store-devtools": "^3.2.4",
     "@types/faker": "^4.1.0",
     "@types/gulp": "^4.0.4",
     "@types/jasmine": "2.5.45",
@@ -65,9 +66,11 @@
     "node-sass": "^4.5.3",
     "progress-bar-webpack-plugin": "^1.9.3",
     "protractor": "~5.1.2",
+    "reselect": "^3.0.1",
     "rollup": "^0.42.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-uglify": "^2.0.1",
+    "run-sequence": "^1.2.2",
     "rxjs": "^5.4.0",
     "ts-node": "~3.0.4",
     "tslint": "~5.3.2",
@@ -75,5 +78,6 @@
     "vinyl-fs": "^2.4.4",
     "webpack-merge": "^4.1.0",
     "zone.js": "^0.8.11"
-  }
+  },
+  "dependencies": {}
 }

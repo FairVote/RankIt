@@ -61,7 +61,7 @@ const build = async function () {
       // Suppress this error message... there are hundreds of them. Angular team says to ignore it.
       // https://github.com/rollup/rollup/wiki/Troubleshooting#this-is-undefined
       if (warning.code === 'THIS_IS_UNDEFINED') return;
-      console.error(message);
+      console.error(warning.message);
     },
   };
 
@@ -109,13 +109,7 @@ const build = async function () {
 
   await del(compilationFolder);
 
-}
-
-
-build().then(() => console.log('build successful')).catch(err => {
-  console.log('build err');
-  console.log(err.message)
-});
+};
 
 
 // Copy files maintaining relative paths.
@@ -155,6 +149,16 @@ function compileSassFiles() {
     true,
     '--source-map-contents'
   ]);
+}
+
+if (process.argv.indexOf('run') >= 0) {
+
+  build().then(() => console.log('build successful')).catch(err => {
+    console.log('build err');
+    console.log(err.message)
+  });
+
+
 }
 
 module.exports = build;

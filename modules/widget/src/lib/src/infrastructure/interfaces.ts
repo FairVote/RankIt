@@ -9,7 +9,6 @@ export interface Datasource {
 
   list<T>(path: string): Observable<T[]>;
 }
-
 /**
  * Annoyingly, firebase exports its own firebase.Promise interface, which is incompatible with the standard ES6 definition.
  * We want to hide the use of firebase/angularfire as an implementation detail behind this interface, but also want to
@@ -33,7 +32,7 @@ export interface WritableObjectReference<T> extends Observable<T> {
 export interface WritableListReference<T> extends Observable<T> {
   lift<T, R>(operator: Operator<T, R>): Observable<R>;
 
-  push(val: any): Promiselike<string>
+  push(val: any): Promiselike<string>;
 
   update(path: string, value: Object): Promiselike<void>;
 

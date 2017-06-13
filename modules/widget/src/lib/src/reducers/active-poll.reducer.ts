@@ -18,5 +18,5 @@ export function activePollReducer(state: string | null = null, action: Action): 
     default:
       return state;
   }
-
 }
+

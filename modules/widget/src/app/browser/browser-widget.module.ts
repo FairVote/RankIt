@@ -3,8 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserInfrastructureModule, RankitRootRoutingModule, RankitWidgetModule } from '@rankit/widget';
 import { BrowserRootComponent } from './browser-root.component';
 import { environment } from '../environments/environment';
-import { StoreModule } from '@ngrx/store';
-import { SHOULD_INSTRUMENT, StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { Store } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { Actions } from '@ngrx/effects';
 
 const instrument: InjectionToken<boolean> = new InjectionToken('instrument');
 
@@ -12,23 +13,32 @@ const instrument: InjectionToken<boolean> = new InjectionToken('instrument');
   imports: [
     BrowserModule.withServerTransition({ appId: environment.appId }),
 
-    StoreModule.forRoot({}),
     BrowserInfrastructureModule,
     RankitWidgetModule,
     RankitRootRoutingModule,
 
-    StoreDevtoolsModule.instrument({ maxAge: 100 }),
-
+    StoreDevtoolsModule.instrumentOnlyWithExtension(),
 
   ],
   declarations: [ BrowserRootComponent ],
-  providers: [ { provide: SHOULD_INSTRUMENT, useValue: !environment.production } ],
   bootstrap: [ BrowserRootComponent ]
 })
 export class BrowserWidgetModule {
-  constructor() {
+  constructor(private store: Store<any>, private actions$: Actions) {
     if (!environment.production) {
-      console.info(`BrowserWidgetModule constructed.`)
+      console.info(`BrowserWidgetModule constructed.`);
+
+      this.store.subscribe(state => {
+        console.info(`--- state change --- `);
+        console.info(state);
+      });
+
+      this.actions$.subscribe(action => {
+        console.info(`--- action --- `);
+        console.info(action);
+      })
+
+
     }
   }
 

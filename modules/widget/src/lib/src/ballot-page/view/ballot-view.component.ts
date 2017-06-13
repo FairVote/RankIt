@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Poll } from '../../models/poll';
 
 @Component({
   selector: 'rankit-ballot-view',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: [ './ballot-view.component.scss' ]
 })
 export class BallotViewComponent implements OnInit {
+
+  @Input() poll: Poll;
 
   constructor() { }
 

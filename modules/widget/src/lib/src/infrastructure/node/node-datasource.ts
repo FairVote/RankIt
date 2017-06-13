@@ -12,7 +12,7 @@ export class NodeDatasource implements Datasource {
 
   constructor(private http: Http) {}
 
-  private readonly API_URL = 'https://rcv-app.firebaseio.com';
+  private readonly API_URL = 'https://rank-it-app.firebaseio.com';
 
   object<T>(path: string): Observable<T> {
     const parts = path.split('/');

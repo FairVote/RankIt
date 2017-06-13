@@ -1,0 +1,64 @@
+{
+  "poll": {
+    "foobar": {
+      "timeCreated": "2017-06-13T17:12:57.090Z",
+      "timeEdited": "2017-06-13T17:12:57.090Z",
+      "expires": false,
+      "options": {
+        "option_0": {
+          "color": "#5C6BC0",
+          "text": "Arrival"
+        },
+        "option_1": {
+          "color": "#EF5350",
+          "text": "Fences"
+        },
+        "option_2": {
+          "color": "#43A047",
+          "text": "Hacksaw Ridge"
+        },
+        "option_3": {
+          "color": "#7E57C2",
+          "text": "Hell or High Water"
+        },
+        "option_4": {
+          "color": "#FF8A65",
+          "text": "Hidden Figures"
+        },
+        "option_5": {
+          "color": "#8D6E63",
+          "text": "La La Land"
+        },
+        "option_6": {
+          "color": "#F06292",
+          "text": "Lion"
+        },
+        "option_7": {
+          "color": "#FDD835",
+          "text": "Manchester by the Sea"
+        },
+        "option_8": {
+          "color": "#3ba9c4",
+          "text": "Moonlight"
+        }
+      },
+      "owner": "1c2kEB9CHdPKGX2SXc5OY69sOL03",
+      "prompt": "What Movie Should Win Best Picture?",
+      "published": true,
+      "security": "anonymous",
+      "status": "open"
+    }
+  },
+  "user": {
+    "1c2kEB9CHdPKGX2SXc5OY69sOL03": {
+      "displayName": "Drew Moore",
+      "photoUrl": "https://lh5.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/s28-c-k-no/photo.jpg"
+    }
+  },
+  "user_private": {
+    "1c2kEB9CHdPKGX2SXc5OY69sOL03": {
+      "emailVerified": true,
+      "superuser": true
+    }
+  }
+}

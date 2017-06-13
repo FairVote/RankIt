@@ -1,6 +1,7 @@
-import { Action, Selector } from '@ngrx/store';
+import { Action } from '@ngrx/store';
 import { mergePolls, Poll, pollsEqual } from '../models/poll';
 import { DataState } from './index';
+import { Selector } from 'reselect';
 
 export const POLL_LOADED = '[core.data.poll] pollLoaded';
 
@@ -36,12 +37,10 @@ export function pollDataReducer(state: DataState<Poll> = { ids: [], entities: {}
           entities: { ...state.entities, [poll.id]: poll } //add it to entities
         }
       }
-
     default:
       return state;
   }
 }
-
 
 export const getIds: Selector<DataState<Poll>, string[]> = (state: DataState<Poll>) => state && state.ids || [];
 
