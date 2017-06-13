@@ -1,5 +1,4 @@
 import { Inject, NgModule, Optional, SkipSelf } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { BallotModule } from './ballot-page/ballot.module';
 import { DatasourceToken } from './infrastructure/tokens';
 import { Datasource } from './infrastructure/interfaces';
@@ -10,11 +9,11 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { DataEffects } from './services/data.effects';
 import { PollDataService } from './services/poll-data.service';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-
+    SharedModule,
 
     StoreModule.provideStore(reducers),
     EffectsModule.run(DataEffects),

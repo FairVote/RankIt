@@ -2,8 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const {NoEmitOnErrorsPlugin, NamedModulesPlugin} = require('webpack');
-const {GlobCopyWebpackPlugin, BaseHrefWebpackPlugin} = require('@angular/cli/plugins/webpack');
+const {GlobCopyWebpackPlugin, BaseHrefWebpackPlugin, SuppressExtractedTextChunksWebpackPlugin} = require('@angular/cli/plugins/webpack');
 const {CommonsChunkPlugin} = require('webpack').optimize;
 const {AotPlugin} = require('@ngtools/webpack');
 const merge = require('webpack-merge');
@@ -15,6 +16,8 @@ const deployUrl = "";
 const helpers = require('../../tools/helpers');
 const postcssPlugins = require('../../tools/postcss-plugins')(baseHref, deployUrl, minimizeCss);
 const RenderWidgetPlugin = require('../../tools/render-plugin');
+
+const root = require('../../tools/helpers').root;
 
 const commonConfig = {
   devtool: "source-map",
@@ -42,6 +45,10 @@ const commonConfig = {
         exclude: [
           /\/node_modules\//
         ]
+      },
+      {
+        test: /\.ts$/,
+        loader: "@ngtools/webpack"
       },
       {
         test: /\.json$/,
@@ -81,7 +88,7 @@ const commonConfig = {
         ]
       },
       {
-        exclude: [],
+        exclude: [root('modules/widget/src/assets/styles.scss')],
         test: /\.scss$|\.sass$/,
         use: [
           "exports-loader?module.exports.toString()",
@@ -110,8 +117,35 @@ const commonConfig = {
         ]
       },
       {
-        test: /\.ts$/,
-        loader: "@ngtools/webpack"
+        "include": [
+          root("modules/widget/src/assets/styles.scss")
+        ],
+        "test": /\.scss$|\.sass$/,
+        "use": [
+          "style-loader",
+          {
+            "loader": "css-loader",
+            "options": {
+              "sourceMap": true,
+              "importLoaders": 1
+            }
+          },
+          {
+            "loader": "postcss-loader",
+            "options": {
+              "ident": "postcss",
+              "plugins": postcssPlugins
+            }
+          },
+          {
+            "loader": "sass-loader",
+            "options": {
+              "sourceMap": true,
+              "precision": 8,
+              "includePaths": []
+            }
+          }
+        ]
       }
     ]
   },
@@ -129,13 +163,17 @@ const commonConfig = {
 
     new BaseHrefWebpackPlugin({}),
     new NamedModulesPlugin({}),
+    new ExtractTextPlugin({
+      "filename": "[name].bundle.css"
+    })
   ]
 };
 
 const browserConfig = merge({}, commonConfig, {
   entry: {
-    main: "./src/app/browser/main.ts",
-    polyfills: "./src/app/browser/polyfills.ts"
+    main: ["./src/app/browser/main.ts"],
+    polyfills: ["./src/app/browser/polyfills.ts"],
+    styles: ['./src/assets/styles.scss'],
   },
 
   output: {
@@ -162,7 +200,7 @@ const browserConfig = merge({}, commonConfig, {
 
 
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: "./src/assets/index.html",
       filename: "./index.html",
       hash: false,
       inject: true,
@@ -171,7 +209,7 @@ const browserConfig = merge({}, commonConfig, {
       minify: false,
       cache: true,
       showErrors: true,
-      chunks: ["main", "polyfills", "inline"],
+      chunks: ["main", "polyfills", "inline", "styles"],
       excludeChunks: [],
       title: "Webpack App",
       xhtml: true,
@@ -211,7 +249,8 @@ const browserConfig = merge({}, commonConfig, {
 
 const serverConfig = merge({}, commonConfig, {
   entry: {
-    index: "./src/app/server/index.ts"
+    styles: ['./src/assets/styles.scss'],
+    index: ["./src/app/server/index.ts"],
   },
 
   output: {
@@ -224,6 +263,34 @@ const serverConfig = merge({}, commonConfig, {
 
   plugins: [
 
+    new HtmlWebpackPlugin({
+      template: "./src/assets/index.html",
+      filename: "./index.html",
+      hash: false,
+      inject: true,
+      compile: true,
+      favicon: false,
+      minify: false,
+      cache: true,
+      showErrors: true,
+      chunks: ["styles"],
+      excludeChunks: [],
+      title: "Webpack App",
+      xhtml: true,
+      chunksSortMode: function sort(left, right) {
+        let leftIndex = entryPoints.indexOf(left.names[0]);
+        let rightindex = entryPoints.indexOf(right.names[0]);
+        if (leftIndex > rightindex) {
+          return 1;
+        }
+        else if (leftIndex < rightindex) {
+          return -1;
+        }
+        else {
+          return 0;
+        }
+      }
+    }),
     new AotPlugin({
       //NOTE: this has to be the absolute path
       entryModule: helpers.root('modules/widget/src/app/server/server-widget.module#ServerWidgetModule'),

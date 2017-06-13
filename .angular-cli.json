@@ -9,15 +9,18 @@
       "root": "modules/widget/src",
       "outDir": "modules/widget/dist/browser",
       "assets": [
+        "assets"
       ],
-      "index": "index.html",
+      "index": "assets/index.html",
       "main": "app/browser/main.ts",
       "polyfills": "app/browser/polyfills.ts",
       "test": "app/browser/test.ts",
       "tsconfig": "app/browser/tsconfig.json",
       "testTsconfig": "app/browser/tsconfig.spec.json",
       "prefix": "rankit",
-      "styles": [],
+      "styles": [
+        "assets/styles.scss"
+      ],
       "scripts": [],
       "environmentSource": "app/browser/environments/environment.ts",
       "environments": {
@@ -30,15 +33,18 @@
       "root": "modules/widget/src",
       "outDir": "modules/widget/dist/server",
       "assets": [
+        "assets"
       ],
-      "index": "index.html",
+      "index": "assets/index.html",
       "main": "app/server/main.ts",
       "polyfills": "app/server/polyfills.ts",
       "test": "app/server/test.ts",
       "tsconfig": "app/server/tsconfig.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "rankit",
-      "styles": [],
+      "styles": [
+        "assets/styles.scss"
+      ],
       "scripts": [],
       "environmentSource": "app/server/environments/environment.ts",
       "environments": {

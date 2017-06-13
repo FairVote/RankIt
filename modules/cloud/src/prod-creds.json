@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "rank-it-app",
+  "private_key_id": "f9b916a8b25ac13a89676441592c26c10f00d004",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCWiToL5aQUzyaj\n6sg0YBuoZOZGFH/hYWjDJfVc5ZvP2IzQR96yIP1q+0iU1b3CI30zR+3kb4mnoRFj\nGwiKlr11zSXvGD38WWlGloNnzYdZrBn8tWwr9I3EZMrk89Mc7tflpjSeVjnefy+R\n5p4iYppQJvYod9ckeo/pC/5TtHBFEJAvmh06FOit8VGz2siPP7XPhRkBRJXEPLZC\nGXwoaXOGuwPTEbOk5hLYhK1sTJh7/1UXHQw9f/D3u1OROjsVlTR7lfymnzd6AWC1\nwZGqZH8JCSEWElav6UwFzXZGkDf+jBMQL+bzxCoemo/sujyFQTxJONo4/H6LQdF5\nfg5dr9CvAgMBAAECggEAB8WS7R1QgNCHDqxm5KlXlDSNXO3fAkxMo9KYXdDu3+au\nsmwbd7fTTYwmnaSBVP4PDzA1/HaztSdQJf01zi3lHylVvYfTX21gTYgkxZ2rULpd\nZxoYuRY5oXuQrAxYiGReWhlgGxKZjz6ivpYY8O6FSAES8VjqjxQSzPXVDg5BQ5d4\nfWKO443nm9hy6SFxf33hqoNFkT3z8pRx0cVGv+Snu0r/E8bWQJ+8KGqJqSWTo8lL\ns0kkNOX+jYdZ1QMOT09NLC5d6y58iROG9gqCiAB5SHgzaHfTMhJr/0sPG1NwPncY\ntejwMnKEH/oHT8UMy/WL7PAAGuxTiS/99NnToA2R3QKBgQDUKxoz2LSoe1pt7su9\nDgKaKYSGXsZ0xD/nuLZI/n3jQ7UBwT7twiTLmntldMdXPEKUMjCsSSseUpYncyV3\n5zI6UVgbofI5XPUHIZjXvmO+3G5fsV+fJtT/0jG4mJyExkDIeURAkR8gkgdMQijX\noD3EhpWv3Hyd0hd4c+h6edK9AwKBgQC1opcecsGAQ4h+pHW1JHMBNntw0CcapFT/\nZcgXuUSIIdQoOFdnsL5rb1CWCQ5U2wl5nXkkq7gYGbVuXo2RtXixfl/EhzLb3zps\nwPPowV4OrVfq/omohkVb2OLewI+rqTsMeJtdfowtVmPg590zo21TohvN3wU75OVC\nEgwG+uM/5QKBgCkwcPbNxEzNHcIn0M/UD3dERiEb9yUmEE35ExJara/YLiS4EnJv\n9Vq9k+UfZa+u2DITCFX6Im/Rkqr39LcxYBPoRNWge/jc7gjDYfvIT273NkpHkgvA\nqys68EIpBoHURzFkMXbjdYqKLvaEBY/O4Q7tHdQ1VtAAwGO3BNP6IIpnAoGAdH/j\ns7jhGda3DpuHj/bf+NAsHrCz1CfBCMsMqwK+zR39iQqSLUS07g3Iv2LxmUWgbyus\nzvOBMZwTvcXRwbqGvjmTTWd2HIayX5znFMwp+vn94RD/1GLCy+VxpnQV8oGqCRa2\neCI54L5/c3rka0GQVsssUECSh9cJoPYYVsXGym0CgYEAgEpGfTkMrsuJsad7BX0U\niU2zJrzypD+DiKjr3uzn/4zn5luk3LbitT3BL0aOFYZrEjukeSBMDPOPTFUnc27v\n90ZTcvpRqIBmazdmmWilF/kh1eO1/2eqnSDkuWX/2mAdRLYkBlsV2XxI1nRlTMmC\nNiOZY7dHQcyGjR3x2lawSFI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "rank-it-app@appspot.gserviceaccount.com",
+  "client_id": "108519524055881495717",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/rank-it-app%40appspot.gserviceaccount.com"
+}

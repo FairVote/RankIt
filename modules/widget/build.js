@@ -12,6 +12,7 @@ const execa = require('execa');
 const rollupGlobals = require('../../tools/rollup-globals');
 const del = require('del');
 const inlineResources = require('./../../tools/inline-resources');
+const sass = require('node-sass');
 
 const libNameWithScope = require('./package.json').name;
 const libName = libNameWithScope.slice(libNameWithScope.indexOf('/') + 1);
@@ -19,6 +20,8 @@ const rootFolder = path.join(__dirname);
 const compilationFolder = path.join(rootFolder, 'out-tsc');
 const srcFolder = path.join(rootFolder, 'src/lib');
 const distFolder = path.join(rootFolder, 'dist');
+const srcAssetsFolder = path.join(rootFolder, 'src/assets');
+const distAssetsFolder = path.join(distFolder, 'assets');
 const tempLibFolder = path.join(compilationFolder, 'lib');
 const es5OutputFolder = path.join(compilationFolder, 'lib-es5');
 const es2015OutputFolder = path.join(compilationFolder, 'lib-es2015');
@@ -30,6 +33,15 @@ const build = async function () {
   await  _relativeCopy(`**/*`, srcFolder, tempLibFolder);
   await inlineResources(tempLibFolder);
   console.log('inline succeeded.');
+
+
+  sass.renderSync({
+    file: path.join(srcAssetsFolder, 'styles.scss'),
+    outFile: path.join('styles.css')
+  });
+
+  console.log('sass assets compiled');
+
 
   await ngc({project: `${tempLibFolder}/tsconfig.json`});
   console.log('ES2015 compilation succeeded.');
@@ -139,17 +151,6 @@ function _recursiveMkDir(dir) {
   }
 }
 
-function compileSassFiles() {
-  return execa('node-sass', [
-    tempLibFolder,
-    '-o', tempLibFolder,
-    '--output-style',
-    'compressed',
-    '--source-map',
-    true,
-    '--source-map-contents'
-  ]);
-}
 
 if (process.argv.indexOf('run') >= 0) {
 

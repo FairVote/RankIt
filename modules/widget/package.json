@@ -8,12 +8,14 @@
   "typings": "./widget.d.ts",
   "private": true,
   "dependencies": {
-    "faker": "^4.1.0"
+    "faker": "^4.1.0",
+    "sass-mq": "^3.3.2"
   },
   "peerDependencies": {
     "@angular/animations": "~4.2.0",
     "@angular/common": "~4.2.0",
     "@angular/core": "~4.2.0",
+    "@angular/material": "^2.0.0-beta.6",
     "@angular/router": "~4.2.0",
     "@ngrx/effects": "^2.0.3",
     "@ngrx/store": "^2.2.2",

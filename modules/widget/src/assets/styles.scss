@@ -1,0 +1,33 @@
+/**
+  DO NOT import this stylesheet elsewhere - doing so will cause
+ */
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700,800|Pacifico');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import "../../../../node_modules/@angular/material/theming";
+@import "../../../../node_modules/sass-mq/mq";
+@import "../assets/style/theme";
+
+@include mat-core();
+
+@include angular-material-theme($rcv-app-theme);
+
+html, body {
+  display: block;
+  margin: 0;
+  position: relative;
+  font-family: 'Work Sans', Helvetica, Arial, sans-serif;
+
+  @include mq(mobile) {
+    font-size: 15px;
+  }
+
+  @include mq($from: mobile) {
+    font-size: 18px;
+  }
+
+  @include mq($from: 4000px) {
+    //font was appearing too thin when the app was displayed on a TV
+    font-weight: 500;
+  }
+
+}
