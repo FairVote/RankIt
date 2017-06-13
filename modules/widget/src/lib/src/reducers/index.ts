@@ -36,3 +36,5 @@ const getDataState = (state: WidgetState) => state.data;
 export const getActivePollId: Selector<WidgetState, string> =
   createSelector(getSessionState, (session) => session.activePoll);
 
+
+export {} from ''

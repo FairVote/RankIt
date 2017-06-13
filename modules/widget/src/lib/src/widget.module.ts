@@ -1,11 +1,11 @@
 import { Inject, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BallotModule } from './ballot/ballot.module';
-import { DATASOURCE } from './infrastructure/tokens';
+import { BallotModule } from './ballot-page/ballot.module';
+import { DatasourceToken } from './infrastructure/tokens';
 import { Datasource } from './infrastructure/interfaces';
 import { SessionService } from './services/session.service';
 import { StoreModule } from '@ngrx/store';
-import { dataReducers, sessionReducers } from './state/index';
+import { dataReducers, sessionReducers } from './reducers/index';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -22,7 +22,7 @@ import { environment } from '../environments/environment';
 })
 export class RankitWidgetModule {
 
-  constructor(@Optional() @SkipSelf() extantWidgetModule: RankitWidgetModule, @Optional() @Inject(DATASOURCE) datasource: Datasource) {
+  constructor(@Optional() @SkipSelf() extantWidgetModule: RankitWidgetModule, @Optional() @Inject(DatasourceToken) datasource: Datasource) {
 
     if (!!extantWidgetModule) {
       throw new Error(`RankitWidgetModule instantiated multiple times: Please import it ONLY in your root module`);

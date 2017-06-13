@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { BallotPageComponent } from './ballot/ballot-page.component';
+import { BallotPageComponent } from './ballot-page/ballot-page.component';
 
 export const RANKIT_ROUTES = [
   {

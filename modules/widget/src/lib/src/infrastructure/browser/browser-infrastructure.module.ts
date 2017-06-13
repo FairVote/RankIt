@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { DATASOURCE } from '../tokens';
+import { DatasourceToken } from '../tokens';
 import { BrowserDatasource } from './browser-datasource';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -14,7 +14,7 @@ import { environment } from '../../../environments/environment';
   ],
   providers: [
 
-    { provide: DATASOURCE, useClass: BrowserDatasource },
+    { provide: DatasourceToken, useClass: BrowserDatasource },
 
   ]
 })

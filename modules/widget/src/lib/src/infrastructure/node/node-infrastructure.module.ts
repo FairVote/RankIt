@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { NodeDatasource } from './node-datasource';
-import { DATASOURCE } from '../tokens';
+import { DatasourceToken } from '../tokens';
 import { HttpModule } from '@angular/http';
 
 @NgModule({
   imports: [ HttpModule ],
   providers: [
-    { provide: DATASOURCE, useClass: NodeDatasource }
+    { provide: DatasourceToken, useClass: NodeDatasource }
   ]
 })
 export class NodeInfrastructureModule {

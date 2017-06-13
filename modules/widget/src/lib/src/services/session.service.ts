@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { getActivePollId, WidgetState } from '../state/index';
+import { getActivePollId, WidgetState } from '../reducers/index';
 import { Observable } from 'rxjs/Observable';
-import { SetActivePollAction } from '../state/active-poll.reducer';
+import { SetActivePollAction } from '../reducers/active-poll.reducer';
 
 @Injectable()
 export class SessionService {
