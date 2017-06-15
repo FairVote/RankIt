@@ -5,7 +5,12 @@
     "module": "es2015",
     "types": [
       "node"
-    ]
+    ],
+    "paths": {
+      "reselect/index": [
+        "reselect"
+      ]
+    }
   },
   "exclude": [
     "test.ts",

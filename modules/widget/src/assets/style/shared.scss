@@ -1,2 +1,6 @@
 @import '../../../../../node_modules/@angular/material/theming';
 @import '../../../../../node_modules/sass-mq/mq';
+@import '../../../../../node_modules/sass-flex-mixin/flex';
+
+$top-bar-height: 5em;
+$bottom-bar-height: 5em;

@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { getActivePoll, getActivePollId, WidgetState } from '../reducers/index';
+import { getActivePoll, getActivePollId, getBallotState, WidgetState } from '../reducers/index';
 import { Observable } from 'rxjs/Observable';
 import { SetActivePollAction } from '../reducers/active-poll.reducer';
 import { Poll } from '../models/poll';
+import { BallotState } from '../ballot-page/ballot.state';
 
 @Injectable()
 export class SessionService {
@@ -21,6 +22,10 @@ export class SessionService {
 
   public getActivePoll(): Observable<Poll> {
     return this.store.select(getActivePoll);
+  }
+
+  public getBallotState(): Observable<BallotState> {
+    return this.store.select(getBallotState)
   }
 
 }

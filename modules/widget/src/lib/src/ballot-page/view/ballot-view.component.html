@@ -1,3 +1,55 @@
-<div *ngFor="let opt of poll.options">
-  {{opt.text}}
+<div class="top">
+  <div class="prompt">
+    {{ poll.prompt }}
+  </div>
+  <div class="instructions">
+    {{instructions()}}
+  </div>
+</div>
+
+<div class="panes">
+  <div class="unselected pane" [class.empty]="selections.length == poll.options.length">
+    <div class="label"></div>
+    <div *ngFor="let opt of poll.options" class="slot">
+      <div class="text" (click)="add.emit(opt.id)" [class.hidden]="isSelected(opt.id)">
+        {{opt.text}}
+      </div>
+    </div>
+  </div>
+
+  <div class="selected pane" [class.empty]="selections.length == 0">
+
+    <div class="label">MY BALLOT</div>
+    <div class="inner-ballot">
+      <div class="indices">
+        <div *ngFor="let opt of poll.options; let idx = index" class="index-slot">
+          <div class="index" [class.translucent]="idx >= selections.length">
+            {{idx + 1}}
+          </div>
+        </div>
+      </div>
+      <div class="selections" #innerBallot>
+        <div *ngFor="let id of selections; let idx = index"
+             class="slot nonempty"
+             (click)="remove.emit(id)"
+             [attr.opt-id]="id"
+             [@selection]>
+
+          <div class="text">
+            {{option(id).text}}
+          </div>
+          <div class="remove-btn">
+            <button md-icon-button class="remove-btn" (click)="remove.emit(id)">
+              <md-icon>close</md-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="bottom">
+
 </div>

@@ -4,7 +4,9 @@
     "outDir": "../../out-tsc/lib-es2015/",
     "target": "es2015",
     "baseUrl": "",
-    "types": []
+    "types": [
+      "node"
+    ]
   },
   "files": [
     "./index.ts",

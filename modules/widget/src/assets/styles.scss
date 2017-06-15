@@ -3,8 +3,11 @@
  */
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700,800|Pacifico');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
 @import "../../../../node_modules/@angular/material/theming";
 @import "../../../../node_modules/sass-mq/mq";
+@import "../../../../node_modules/dragula/dist/dragula.css";
+
 @import "../assets/style/theme";
 
 @include mat-core();

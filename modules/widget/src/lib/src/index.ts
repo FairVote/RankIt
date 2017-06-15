@@ -8,4 +8,3 @@ export * from './reducers/index';
 export { RankitWidgetModule } from './widget.module';
 export { RANKIT_ROUTES, RankitRootRoutingModule, RankitChildRoutingModule } from './routing';
 
-

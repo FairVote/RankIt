@@ -9,7 +9,7 @@ import 'rxjs/add/operator/toPromise';
 
 export async function renderWidget(pollId: string) {
 
-  const document = require('../../index.html');
+  const document = require('../../assets/html/index-server.html');
   let moduleRef: NgModuleRef<ServerWidgetModule>;
 
   try {

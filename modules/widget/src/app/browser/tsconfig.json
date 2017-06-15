@@ -4,7 +4,14 @@
     "outDir": "../../../out-tsc/app-browser",
     "module": "es2015",
     "baseUrl": "",
-    "types": []
+    "types": [
+      "node"
+    ],
+    "paths": {
+      "reselect/index": [
+        "reselect"
+      ]
+    }
   },
   "exclude": [
     "test.ts",

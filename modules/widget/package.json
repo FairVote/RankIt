@@ -15,6 +15,7 @@
     "@angular/animations": "~4.2.0",
     "@angular/common": "~4.2.0",
     "@angular/core": "~4.2.0",
+    "@angular/flex-layout": "^2.0.0-beta.8",
     "@angular/material": "^2.0.0-beta.6",
     "@angular/router": "~4.2.0",
     "@ngrx/effects": "^2.0.3",
@@ -29,6 +30,7 @@
     "@angular/http": "~4.2.0",
     "@angular/platform-server": "~4.2.0",
     "angularfire2": "^4.0.0-rc.1",
+    "dragula": "^3.7.2",
     "firebase": "^4.1.2"
   },
   "devDependencies": {

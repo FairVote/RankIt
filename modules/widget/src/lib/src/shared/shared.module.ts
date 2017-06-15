@@ -1,8 +1,8 @@
-import { MdButtonModule } from '@angular/material';
+import { MdButtonModule, MdIconModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-const MATERIAL_COMPONENTS = [ MdButtonModule ];
+const MATERIAL_COMPONENTS = [ MdButtonModule, MdIconModule ];
 
 @NgModule({
   imports: [ CommonModule, ...MATERIAL_COMPONENTS ],

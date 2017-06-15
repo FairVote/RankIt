@@ -1,17 +1,33 @@
 import { InjectionToken, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserInfrastructureModule, RankitRootRoutingModule, RankitWidgetModule } from '@rankit/widget';
+import {
+  BROWSER,
+  BrowserInfrastructureModule,
+  PlatformToken,
+  RankitRootRoutingModule,
+  RankitWidgetModule
+} from '@rankit/widget';
 import { BrowserRootComponent } from './browser-root.component';
 import { environment } from '../environments/environment';
 import { Store } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { Actions } from '@ngrx/effects';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const instrument: InjectionToken<boolean> = new InjectionToken('instrument');
+
+
+/**
+ * This import ensures that dragula is included in the browser bundle - it is not included in the
+ */
+
 
 @NgModule({
   imports: [
     BrowserModule.withServerTransition({ appId: environment.appId }),
+    BrowserAnimationsModule,
+    FlexLayoutModule,
 
     BrowserInfrastructureModule,
     RankitWidgetModule,
@@ -21,7 +37,13 @@ const instrument: InjectionToken<boolean> = new InjectionToken('instrument');
 
   ],
   declarations: [ BrowserRootComponent ],
-  bootstrap: [ BrowserRootComponent ]
+  bootstrap: [ BrowserRootComponent ],
+  providers: [
+    {
+      provide: PlatformToken,
+      useValue: BROWSER
+    }
+  ]
 })
 export class BrowserWidgetModule {
   constructor(private store: Store<any>, private actions$: Actions) {

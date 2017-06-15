@@ -1,5 +1,159 @@
-$foo: #24e;
+@import "./../../../../assets/style/shared";
 
-.title {
-  color: $foo;
+:host {
+  @include flexbox;
+  @include flex-direction(column);
+  @include align-items(stretch);
+  @include justify-content(space-between);
 }
+
+.top {
+  max-height: $top-bar-height;
+}
+
+.bottom {
+  max-height: $bottom-bar-height;
+}
+
+.prompt {
+  font-size: 1.6em;
+  text-align: center;
+  padding: 10px;
+}
+
+.instructions {
+  padding: 8px;
+  background-color: mat-color($mat-grey, 800);
+  color: mat-contrast($mat-grey, 800);
+  text-align: center;
+  flex: 0 0;
+}
+
+.slot-height {
+  height: 4em;
+  max-height: 4em;
+  min-height: 4em;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.slot {
+  @extend .slot-height;
+  position: relative;
+  text-overflow: ellipsis;
+  padding: 0 5px;
+
+  &:not(.empty) {
+    cursor: pointer;
+  }
+
+  .text {
+    display: inline-block;
+    /* prevent scrolling while dragging */
+    touch-action: none;
+
+    /* hide text if it more than N lines  */
+    overflow: hidden;
+    /* for set '...' in absolute position */
+    position: relative;
+    /* use this value to count block height */
+    line-height: 17px;
+    /* max-height = line-height (1.2) * lines max number (3) */
+    max-height: 3.3em;
+    opacity: 1;
+    transform: translateX(0);
+    transition: 250ms 100ms linear all;
+
+    &.hidden {
+      transform: translateX(50vw);
+      opacity: 0;
+      transition: 200ms ease-out transform, 100ms 100ms ease-out opacity;
+    }
+
+  }
+}
+
+.inner-ballot {
+  @include flexbox;
+  @include align-items(stretch);
+
+  .indices {
+    @include flex(0 0 auto);
+  }
+
+  .selections {
+    @include flex(1 1);
+
+    .slot {
+      @include flexbox;
+      @include align-items(center);
+      @include justify-content(space-between);
+    }
+  }
+
+}
+
+.index-slot {
+  @extend .slot-height;
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(space-around);
+
+  .index {
+    font-weight: 600;
+    color: #222;
+    opacity: 1;
+    transition: 250ms linear opacity;
+    padding: 0 10px;
+
+    &.translucent {
+      opacity: 0.2
+    }
+  }
+
+}
+
+.panes {
+  @include flexbox;
+}
+
+.pane {
+
+  &:not(.empty) {
+    @include flex(1 1);
+  }
+
+  &.selected {
+    background-color: rgba(85, 50, 133, 0.4);
+
+    &.empty {
+      @include flex(0 1 25%);
+    }
+  }
+
+  &.unselected {
+    &.empty {
+      @include flex(0 0 0);
+    }
+  }
+
+  .label {
+    height: 2em;
+    text-align: center;
+    font-weight: 500;
+    padding: 0.5em;
+    text-transform: uppercase;
+  }
+}
+
+.remove-btn {
+  color: mat-color($mat-red, 600);
+  opacity: 0.4;
+  transition: 150ms opacity;
+  &:hover {
+    transition: 150ms 150ms opacity;
+    opacity: 1;
+  }
+
+}
+
