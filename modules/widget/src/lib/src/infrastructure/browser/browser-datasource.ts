@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
-import { WritableDatasource, WritableListReference, WritableObjectReference } from '../interfaces';
+import { WritableDatasource, WritableListReference, WritableObjectReference } from '../data';
 import 'rxjs/add/operator/map';
 
 @Injectable()

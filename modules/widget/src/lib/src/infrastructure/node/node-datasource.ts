@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
-import { Datasource } from '../interfaces';
+import { Datasource } from '../data';
 import { Http } from '@angular/http';
 
 import 'rxjs/add/operator/take';
