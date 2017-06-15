@@ -27,10 +27,6 @@ getTestBed().initTestEnvironment(
 
 });
 
-const lib = require.context('../../lib/', true, /\.spec\.ts$/);
-// And load the modules.
-lib.keys().map(lib);
-
 
 const app = require.context('./', true, /\.spec\.ts$/);
 // And load the modules.

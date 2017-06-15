@@ -1,7 +1,7 @@
 {
-  "extends": "../../../tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../../out-tsc/app-browser",
+    "outDir": "../../out-tsc/website",
     "module": "es2015",
     "baseUrl": "",
     "types": [],
@@ -19,6 +19,7 @@
     "genDir": "ngfactory",
     "skipTemplateCodegen": false,
     "strictMetadataEmit": false,
-    "entryModule": "./browser-widget.module#BrowserWidgetModule"
+    "entryModule": "./src/website.module#RankitWebsiteModule"
   }
 }
+

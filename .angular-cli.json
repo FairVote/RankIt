@@ -11,7 +11,7 @@
       "assets": [
         "assets"
       ],
-      "index": "assets/index.html",
+      "index": "app/browser/index.html",
       "main": "app/browser/main.ts",
       "polyfills": "app/browser/polyfills.ts",
       "test": "app/browser/test.ts",
@@ -39,7 +39,7 @@
       "main": "app/server/main.ts",
       "polyfills": "app/server/polyfills.ts",
       "test": "app/server/test.ts",
-      "tsconfig": "app/server/tsconfig.json",
+      "tsconfig": "tsconfig.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "rankit",
       "styles": [
@@ -50,6 +50,30 @@
       "environments": {
         "dev": "app/server/environments/environment.ts",
         "prod": "app/server/environments/environment.prod.ts"
+      }
+    },
+    {
+      "name": "website",
+      "root": "modules/website",
+      "outDir": "modules/website/dist",
+      "assets": [
+        "assets"
+      ],
+      "index": "src/index.html",
+      "main": "src/main.ts",
+      "polyfills": "src/polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "rankit",
+      "styles": [
+        "src/styles.scss"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
       }
     }
   ],
