@@ -1,28 +1,27 @@
-# Rankit
+# RankIt
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0-beta.1.
+## Overview
 
-## Development server
+**Ranked choice voting is a simple idea.** There are complexities and nuances to discuss beneath the surface, of course, 
+but *at* the surface the basic idea is very easy to understand, and even a very basic understanding makes much of why it 
+can work so well as a collective decision-making mechanism intuitively apparent. The purpose of this project is to 
+communicate that simple idea, hopefully in a way that leaves the user with that intuition. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Our application allows users to experience ranked choice voting in a hands-on way from several angles. Given our emphasis
+on communicating the simplicity and elegance of the idea of RCV, it is imperative that **simplicity and elegance is embodied 
+in the look, feel and behavior of the application**, and this need will be reflected in our design and execution of each 
+of its interfaces. At the same time, we want to satisfy a range of use cases that will demand a significant degree of 
+explorability, discoverability, and customizability in different parts of the application: This theme of simplicity at 
+the surface underlain by a depth of capability beneath will recur in many of our interfaces: 
 
-## Code scaffolding
+## User Interfaces 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+TODO
 
-## Build
+## Data Model
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+TODO
 
-## Running unit tests
+## API
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+TODO

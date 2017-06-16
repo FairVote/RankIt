@@ -1,12 +1,21 @@
 {
   "name": "rankit-sources",
   "version": "1.0.0-beta.0",
+  "repository": "https://github.com/FairVote/rankit.git",
+  "contributors": [
+    {
+      "name": "Drew Moore",
+      "email": "drew@drewmoore.io"
+    }
+  ],
+
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "concurrently \"npm run start:widget-browser\" \"npm run start:widget-server\"",
     "start:widget:browser": "ng serve --app widget-browser --port 4400 ",
     "start:widget:server": "concurrently \"cd modules/widget && webpack --watch \" \"lite-server -c bs.server-widget.config.json\"",
+    "start:website": "ng serve --app website --port 4404",
     "dev": "concurrently \"npm run watch:widget:lib\" \"npm run start:widget:browser\" \"npm run start:widget:server\"",
     "build:widget:lib": "cd modules/widget && node build.js run",
     "build:widget:app": "cd modules/widget && webpack",
@@ -16,7 +25,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
+
   "devDependencies": {
     "@angular/animations": "~4.2.0",
     "@angular/cli": "1.2.0-beta.1",
